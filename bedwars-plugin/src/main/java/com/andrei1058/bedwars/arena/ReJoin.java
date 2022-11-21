@@ -115,6 +115,7 @@ public class ReJoin {
      * Check if can reJoin
      */
     public boolean canReJoin() {
+        /*
         BedWars.debug("ReJoin canReJoin  check.");
         if (arena == null) {
             BedWars.debug("ReJoin canReJoin arena is null " + player.toString());
@@ -135,8 +136,9 @@ public class ReJoin {
             BedWars.debug("ReJoin canReJoin bed is destroyed " + player.toString());
             destroy(false);
             return false;
-        }
-        return true;
+        }*/
+        destroy(true);
+        return false;
     }
 
     /**

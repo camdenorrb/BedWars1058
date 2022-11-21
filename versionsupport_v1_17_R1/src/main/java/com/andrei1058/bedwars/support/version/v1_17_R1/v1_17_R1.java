@@ -458,10 +458,10 @@ public class v1_17_R1 extends VersionSupport {
     }
 
     @Override
-    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, short data) {
+    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, byte data) {
         org.bukkit.inventory.ItemStack i;
         try {
-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount);
+            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount, (short) 0, data);
         } catch (Exception ex) {
             getPlugin().getLogger().log(Level.WARNING, material + " is not a valid " + getName() + " material!");
             i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);

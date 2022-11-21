@@ -121,7 +121,7 @@ public class ItemDropPickListener {
             return true;
         }
         if (item.getItemStack().getType() == Material.ARROW) {
-            item.setItemStack(api.getVersionSupport().createItemStack(item.getItemStack().getType().toString(), item.getItemStack().getAmount(), (short) 0));
+            item.setItemStack(api.getVersionSupport().createItemStack(item.getItemStack().getType().toString(), item.getItemStack().getAmount(), (byte) 0));
             return false;
         }
 

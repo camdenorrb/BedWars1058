@@ -64,7 +64,7 @@ public class BuyItem implements IBuyItem {
 
         itemStack = nms.createItemStack(yml.getString(path + ".material"),
                 yml.get(path + ".amount") == null ? 1 : yml.getInt(path + ".amount"),
-                (short) (yml.get(path + ".data") == null ? 1 : yml.getInt(path + ".data")));
+                (byte) yml.getInt(path + ".data", 1));
 
         if (yml.get(path + ".name") != null) {
             ItemMeta im = itemStack.getItemMeta();

@@ -80,8 +80,8 @@ public class ShopCategory {
         }
 
         itemStack = BedWars.nms.createItemStack(yml.getString(path + ConfigPath.SHOP_CATEGORY_ITEM_MATERIAL),
-                yml.get(path + ConfigPath.SHOP_CATEGORY_ITEM_AMOUNT) == null ? 1 : yml.getInt(path + ConfigPath.SHOP_CATEGORY_ITEM_AMOUNT),
-                (short) (yml.get(path + ConfigPath.SHOP_CATEGORY_ITEM_DATA) == null ? 0 : yml.getInt(path + ConfigPath.SHOP_CATEGORY_ITEM_DATA)));
+                yml.getInt(path + ConfigPath.SHOP_CATEGORY_ITEM_AMOUNT, 1),
+                (byte) (yml.getInt(path + ConfigPath.SHOP_CATEGORY_ITEM_DATA, 0)));
 
 
         if (yml.get(path + ConfigPath.SHOP_CATEGORY_ITEM_ENCHANTED) != null) {

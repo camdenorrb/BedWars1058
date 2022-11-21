@@ -76,7 +76,7 @@ public class PlayerDropPick_1_11Minus implements Listener {
         }
 
         if (e.getItem().getItemStack().getType() == Material.ARROW){
-            e.getItem().setItemStack(api.getVersionSupport().createItemStack(e.getItem().getItemStack().getType().toString(), e.getItem().getItemStack().getAmount(), (short) 0));
+            e.getItem().setItemStack(api.getVersionSupport().createItemStack(e.getItem().getItemStack().getType().toString(), e.getItem().getItemStack().getAmount(), (byte) 0));
             return;
         }
 
