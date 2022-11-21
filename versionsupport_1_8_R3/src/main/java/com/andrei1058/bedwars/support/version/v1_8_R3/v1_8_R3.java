@@ -34,6 +34,7 @@ import com.andrei1058.bedwars.support.version.common.VersionCommon;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
@@ -46,6 +47,7 @@ import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.material.SpawnEgg;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.Team;
@@ -478,9 +480,15 @@ public class v1_8_R3 extends VersionSupport {
 
     @Override
     public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, byte data) {
+        final org.bukkit.Material materialValue = org.bukkit.Material.valueOf(material);
         org.bukkit.inventory.ItemStack i;
         try {
-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount, (short) 0, data);
+            if (materialValue == org.bukkit.Material.MONSTER_EGG) {
+                i = new ItemStack(materialValue, amount);
+                i.setData(new SpawnEgg(data));
+            } else {
+                i = new org.bukkit.inventory.ItemStack(materialValue, amount, data);
+            }
         } catch (Exception ex) {
             getPlugin().getLogger().log(Level.WARNING, material + " is not a valid " + getName() + " material!");
             i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);
